@@ -1,141 +1,22 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Eye, 
   Target, 
-  Building,
   Building2, 
   Cpu, 
   Lightbulb, 
-  Microscope, 
   Briefcase,
   ChevronRight,
-  Menu,
-  X,
   Mail,
-  MapPin,
-  Phone,
   Sparkles,
   Zap,
   Award,
   Database,
-  Globe,
-  Users
+  Globe
 } from 'lucide-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { NAV_LINKS, APPLY_NOW_LINK } from './data/constants';
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const navLinks = NAV_LINKS;
-
-  return (
-    <div className="fixed top-0 left-0 right-0 z-50">
-      {/* Top Dark Bar */}
-      <div className="bg-[#1B3168] py-2 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex gap-4 md:gap-8">
-            <span className="text-white/90 text-[10px] font-bold tracking-widest uppercase">AFFILIATED TO BPUT</span>
-            <span className="text-white/40 hidden md:inline">|</span>
-            <span className="text-white/90 text-[10px] font-bold tracking-widest uppercase">NAAC 'A' ACCREDITED</span>
-          </div>
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <Users size={12} className="text-white/80 group-hover:text-white transition-colors" />
-            <span className="text-white/90 text-[10px] font-bold tracking-widest uppercase group-hover:text-white transition-colors">ALUMNI</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation Bar */}
-      <nav className="bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo Section */}
-            <div className="flex items-center gap-4 cursor-pointer group">
-              <div className="relative shrink-0">
-                <img 
-                  src="/logo.png" 
-                  alt="Trident Academy" 
-                  className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" 
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[#1B3168] font-serif font-black text-2xl leading-[1.1] tracking-tight">TRIDENT</span>
-                <span className="text-[#1B3168] font-sans font-bold text-[9px] sm:text-[10px] tracking-[0.2em] mt-0.5 opacity-100 uppercase">ACADEMY OF TECHNOLOGY</span>
-              </div>
-            </div>
-            
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex flex-1 justify-center items-center gap-6 xl:gap-8">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.label} 
-                  href={link.href} 
-                  className="text-slate-700 hover:text-[#1B3168] transition-all duration-200 font-sans font-bold text-[11px] tracking-widest uppercase relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-[#1B3168] hover:after:w-full after:transition-all after:duration-300"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Action Button */}
-            <div className="hidden lg:flex items-center">
-              <a href={APPLY_NOW_LINK} className="bg-[#1B3168] text-white px-8 py-3 rounded text-[11px] font-black hover:bg-[#141E3C] transition-all duration-300 shadow-md uppercase tracking-[0.2em] transform hover:-translate-y-0.5 active:translate-y-0">
-                APPLY NOW
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center gap-4">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-[#1B3168] p-2 hover:bg-[#1B3168]/5 rounded-full transition-colors">
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="lg:hidden fixed inset-0 top-[112px] bg-white z-[60] overflow-y-auto"
-          >
-            <div className="flex flex-col p-8 gap-8 text-center bg-white min-h-screen">
-              {navLinks.map((link, idx) => (
-                <motion.a 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * idx }}
-                  key={link.label} 
-                  href={link.href} 
-                  className="text-slate-800 hover:text-[#1B3168] font-sans font-black text-lg tracking-[0.1em] uppercase border-b border-black/5 pb-4"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-              <motion.a 
-                href={APPLY_NOW_LINK}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 }}
-                className="bg-[#1B3168] text-white px-8 py-5 rounded-lg text-sm font-black transition-all hover:bg-[#141E3C] uppercase tracking-[0.3em] text-center w-full mt-4 shadow-xl"
-              >
-                APPLY NOW
-              </motion.a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const App = () => {
   const galleryImages = [
