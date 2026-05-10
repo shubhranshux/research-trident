@@ -428,12 +428,12 @@ const App = () => {
                 Our established framework ensures rigorous ethical standards, active linkage with industry, and robust systems fostering research empowerment across all departments.
               </p>
               <div className="space-y-5">
-                <button className="w-full bg-white border border-slate-200 text-secondary px-8 py-5 rounded-[1.5rem] font-bold text-[11px] tracking-[0.25em] transition-all duration-200 hover:border-slate-300 hover:shadow-md uppercase shadow-sm flex items-center justify-between group">
+                <a href="https://research-tat.tekkzy.com/research-committee/" target="_blank" rel="noopener noreferrer" className="w-full bg-white border border-slate-200 text-secondary px-8 py-5 rounded-[1.5rem] font-bold text-[11px] tracking-[0.25em] transition-all duration-200 hover:border-slate-300 hover:shadow-md uppercase shadow-sm flex items-center justify-between group block text-center">
                   Research Committee <ChevronRight className="group-hover:translate-x-1 transition-transform duration-200 text-slate-400" size={18} />
-                </button>
-                <button className="w-full bg-white text-secondary px-8 py-5 rounded-[1.5rem] font-bold text-[11px] tracking-[0.25em] transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 uppercase flex items-center justify-between group border border-slate-200 shadow-sm hover:border-blue-500/30">
+                </a>
+                <a href="https://research-tat.tekkzy.com/research-linkage/" target="_blank" rel="noopener noreferrer" className="w-full bg-white text-secondary px-8 py-5 rounded-[1.5rem] font-bold text-[11px] tracking-[0.25em] transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 uppercase flex items-center justify-between group border border-slate-200 shadow-sm hover:border-blue-500/30 block text-center">
                   Research Linkage <Zap className="text-blue-500 group-hover:text-amber-400 transition-colors duration-200" size={18} />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -447,11 +447,11 @@ const App = () => {
                 
                 <div className="space-y-4 relative z-10">
                   {[
-                    { title: "Empowerment Guidelines", desc: "Framework for integrating research natively into academic curricula.", icon: Sparkles },
-                    { title: "Research & Consultancy Policy 2013", desc: "Foundational rules and metrics governing industrial consultancy.", icon: Briefcase },
-                    { title: "Research & Development Policy 2024", desc: "Updated mandates, ethical practices, and the R&D code of conduct.", icon: Mail }
+                    { title: "Empowerment Guidelines", desc: "Framework for integrating research natively into academic curricula.", icon: Sparkles, href: "https://research-tat.tekkzy.com/empowerment-guidelines/" },
+                    { title: "Research & Consultancy Policy 2013", desc: "Foundational rules and metrics governing industrial consultancy.", icon: Briefcase, href: "https://tat.ac.in/research/research-and-consultancy-policy/" },
+                    { title: "Research & Development Policy 2024", desc: "Updated mandates, ethical practices, and the R&D code of conduct.", icon: Mail, href: "https://tat.ac.in/research/research-code-of-conduct-and-ethical-practice-manual/" }
                   ].map((policy, index) => (
-                    <div key={index} className="flex gap-6 items-start group cursor-pointer p-6 rounded-[1.5rem] bg-[#FCF8F3]/50 hover:bg-white border border-[#F5F5F7] hover:border-[#2D336B]/20 hover:shadow-md transition-all duration-250">
+                    <a key={index} href={policy.href} target="_blank" rel="noopener noreferrer" className="flex gap-6 items-start group cursor-pointer p-6 rounded-[1.5rem] bg-[#FCF8F3]/50 hover:bg-white border border-[#F5F5F7] hover:border-[#2D336B]/20 hover:shadow-md transition-all duration-250">
                       <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shrink-0 border border-[#2D336B]/10 group-hover:bg-[#2D336B] group-hover:border-[#2D336B] transition-all duration-250 shadow-sm">
                         <policy.icon className="text-[#2D336B] group-hover:text-white transition-colors duration-250" size={22} strokeWidth={2} />
                       </div>
@@ -459,11 +459,106 @@ const App = () => {
                         <h4 className="text-[1.1rem] font-bold text-secondary group-hover:text-[#2D336B] transition-colors duration-200 tracking-wide">{policy.title}</h4>
                         <p className="text-[0.9rem] text-slate-500 font-medium mt-2 leading-relaxed">{policy.desc}</p>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Focus Areas Section */}
+      <section id="focus-areas" className="py-32 bg-white relative overflow-hidden border-t border-slate-100">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 origin-top-right transform z-0" />
+        
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-sm font-black text-slate-400 mb-4 uppercase tracking-[0.4em]">Explore Our</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-black text-secondary uppercase tracking-[0.1em] drop-shadow-sm mb-6">
+              Research <span className="text-blue-600 italic font-medium lowercase">Focus Areas</span>
+            </h3>
+            <div className="h-1.5 w-24 bg-blue-600/20 mx-auto rounded-full" />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Research Recognition",
+                desc: "Honoring outstanding research contributions and scholarly achievements within our institution.",
+                icon: Award,
+                url: "https://research-tat.tekkzy.com/research-recognition/",
+                color: "text-amber-500",
+                bg: "bg-amber-50",
+                border: "group-hover:border-amber-500/30"
+              },
+              {
+                title: "Extramural Funding (TEFR)",
+                desc: "Securing external grants for impactful, solution-driven research projects and global challenges.",
+                icon: Globe,
+                url: "https://research-tat.tekkzy.com/extramural-funding/",
+                color: "text-blue-500",
+                bg: "bg-blue-50",
+                border: "group-hover:border-blue-500/30"
+              },
+              {
+                title: "Intramural Funding (TIFR)",
+                desc: "Internal funding schemes supporting faculty and student innovations to foster research excellence.",
+                icon: Lightbulb,
+                url: "https://research-tat.tekkzy.com/intramural-funding/",
+                color: "text-emerald-500",
+                bg: "bg-emerald-50",
+                border: "group-hover:border-emerald-500/30"
+              },
+              {
+                title: "Domain Research Hubs",
+                desc: "Specialized centers fostering interdisciplinary, advanced technical and social research.",
+                icon: Building2,
+                url: "https://research-tat.tekkzy.com/domain-research-hub/",
+                color: "text-indigo-500",
+                bg: "bg-indigo-50",
+                border: "group-hover:border-indigo-500/30"
+              },
+              {
+                title: "Patents",
+                desc: "Securing intellectual property rights for groundbreaking and transformative innovations.",
+                icon: Zap,
+                url: "https://tat.ac.in/research/patents/",
+                color: "text-rose-500",
+                bg: "bg-rose-50",
+                border: "group-hover:border-rose-500/30"
+              },
+              {
+                title: "Consultancy",
+                desc: "Bridging the gap between academia and industry through expert solutions and active R&D.",
+                icon: Briefcase,
+                url: "https://research-tat.tekkzy.com/consultancy/",
+                color: "text-cyan-500",
+                bg: "bg-cyan-50",
+                border: "group-hover:border-cyan-500/30"
+              }
+            ].map((item, index) => (
+              <a 
+                key={index} 
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 ${item.border}`}
+              >
+                <div className={`w-16 h-16 rounded-[1.25rem] ${item.bg} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className={item.color} size={28} strokeWidth={1.5} />
+                </div>
+                <h4 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-blue-600 transition-colors duration-200">
+                  {item.title}
+                </h4>
+                <p className="text-slate-500 leading-relaxed font-medium text-[0.95rem]">
+                  {item.desc}
+                </p>
+                <div className="mt-8 flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors duration-200">
+                  Explore <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
