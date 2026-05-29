@@ -17,15 +17,16 @@ import {
 } from 'lucide-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SectionDivider from './components/SectionDivider';
 
 const App = () => {
   const galleryImages = [
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&q=80&w=800"
+    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1614935151651-0bea6508ab2b?auto=format&fit=crop&q=80&w=1200"
   ];
 
   return (
@@ -140,6 +141,10 @@ const App = () => {
         </div>
       </section>
 
+      <div className="relative z-[20]" style={{ marginTop: '-2px' }}>
+        <SectionDivider type="wave" topColor="#0F172A" bottomColor="#2D336B" height={80} />
+      </div>
+
       {/* Research Gallery Section */}
       <section className="py-14 bg-[#2D336B] relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -182,50 +187,59 @@ const App = () => {
         </div>
       </section>
 
-      {/* Vision & Mission Section */}
-      <section id="vision" className="py-32 bg-[#FCF8F3] relative overflow-hidden border-y border-[#FCF8F3]/50">
-        <div className="absolute inset-0 bg-grid-slate-100 opacity-40 pointer-events-none" />
-        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none animate-blob" />
+      <SectionDivider type="curve" topColor="#2D336B" bottomColor="#FCF8F3" height={80} />
+
+      {/* Vision & Mission Section (Image 1 Style: Overlapping Circular Gradients) */}
+      <section id="vision" className="py-32 bg-gradient-to-br from-[#f0f4f8] to-[#fcecee] relative overflow-hidden">
+        {/* Background Circles */}
+        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] rounded-full border-[60px] border-white/40 pointer-events-none" />
+        <div className="absolute top-[10%] -right-[20%] w-[1000px] h-[1000px] rounded-full bg-gradient-to-tr from-white/60 to-transparent pointer-events-none" />
+        <div className="absolute -bottom-[30%] left-[20%] w-[1200px] h-[1200px] rounded-full border-[100px] border-white/30 pointer-events-none mix-blend-overlay" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/40 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white rounded-[2.5rem] p-10 md:p-14 shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-              <div className="flex items-center gap-6 mb-10 relative z-10">
-                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover:border-[#00897B]/30 group-hover:bg-[#00897B]/5 transition-colors duration-300">
-                  <Eye className="text-[#00897B]" size={32} strokeWidth={1.5} />
-                </div>
-                <h2 className="text-3xl font-serif font-bold tracking-[0.2em] text-secondary uppercase">Our Vision</h2>
+        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10">
+          <div className="grid md:grid-cols-2 gap-20 items-start">
+            
+            {/* Vision */}
+            <div className="relative">
+              <div className="text-[120px] font-serif font-black text-[#F7B538] opacity-20 absolute -top-16 -left-10 select-none">01</div>
+              <div className="flex items-center gap-4 mb-8 relative z-10">
+                <div className="w-12 h-1 bg-[#00897B]" />
+                <h2 className="text-4xl font-serif font-black tracking-[0.1em] text-secondary uppercase">Our Vision</h2>
               </div>
-              <p className="text-[1.1rem] leading-relaxed text-slate-600 font-light relative z-10">
-                To establish an ecosystem of continuous learning and discovery that pioneers scientific advancement and reshapes the global technological landscape.
+              <p className="text-[1.3rem] leading-relaxed text-slate-700 font-serif italic relative z-10 pl-16 border-l border-[#00897B]/20">
+                "To establish an ecosystem of continuous learning and discovery that pioneers scientific advancement and reshapes the global technological landscape."
               </p>
             </div>
 
-            <div className="bg-white rounded-[2.5rem] p-10 md:p-14 shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-              <div className="flex items-center gap-6 mb-10 relative z-10">
-                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors duration-300">
-                  <Target className="text-blue-500" size={32} strokeWidth={1.5} />
-                </div>
-                <h2 className="text-3xl font-serif font-bold tracking-[0.2em] text-secondary uppercase">Our Mission</h2>
+            {/* Mission */}
+            <div className="relative mt-16 md:mt-0 md:pt-24">
+              <div className="text-[120px] font-serif font-black text-blue-500 opacity-10 absolute top-8 -left-10 select-none">02</div>
+              <div className="flex items-center gap-4 mb-8 relative z-10">
+                <div className="w-12 h-1 bg-blue-500" />
+                <h2 className="text-4xl font-serif font-black tracking-[0.1em] text-secondary uppercase">Our Mission</h2>
               </div>
-              <ul className="space-y-6 relative z-10">
+              <ul className="space-y-8 relative z-10 pl-16 border-l border-blue-500/20">
                 {[
                   "Foster a culture of innovative and disruptive thinking.",
                   "Build state-of-the-art research infrastructure.",
                   "Facilitate global collaboration and knowledge exchange."
                 ].map((item, index) => (
-                  <li key={index} className="flex gap-4 items-start">
-                    <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center shrink-0 mt-1 border border-slate-100">
-                      <div className="w-2 h-2 rounded-full bg-blue-500" />
-                    </div>
-                    <span className="text-[1.05rem] text-slate-600 leading-relaxed font-light">{item}</span>
+                  <li key={index} className="flex gap-6 items-start group">
+                    <span className="text-sm font-bold text-blue-500 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">0{index + 1}.</span>
+                    <span className="text-[1.1rem] text-slate-700 leading-relaxed font-light">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
+
           </div>
         </div>
       </section>
+
+      <div className="relative z-[20]" style={{ marginTop: '-2px' }}>
+        <SectionDivider type="wave" topColor="#FCF8F3" bottomColor="#F7B538" height={80} />
+      </div>
 
       {/* Philosophy Section - MOVED UP */}
       <section id="philosophy" className="py-40 bg-[#F7B538] relative overflow-hidden flex items-center justify-center border-t border-[#FCF8F3]/20 shadow-[0_-20px_50px_rgba(247,181,56,0.2)]">
@@ -241,182 +255,212 @@ const App = () => {
         </div>
       </section>
 
-      {/* Core Objectives Section - MOVED DOWN */}
-      <section id="objectives" className="py-32 bg-[#EEF2FF] relative z-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-6xl font-serif font-black text-secondary uppercase tracking-[0.1em] mb-6 leading-tight">
-              Core <span className="text-emerald-600 italic font-medium lowercase">Objectives</span>
-            </h2>
-            <div className="h-1.5 w-32 bg-emerald-600/20 mx-auto rounded-full" />
+      <SectionDivider type="curve" topColor="#F7B538" bottomColor="#EEF2FF" height={80} />
+
+      {/* Core Objectives Section (Image 3 Style: Geometric & Dots) */}
+      <section id="objectives" className="py-32 bg-[#f8f9fa] relative z-20 overflow-hidden">
+        {/* Background Geometry */}
+        <div className="absolute inset-0 bg-[radial-gradient(#94a3b8_2px,transparent_2px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
+        {/* Diagonal striped overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 1px, transparent 10px)' }} />
+        
+        {/* Geometric angled blocks */}
+        <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[150%] bg-white border-r-[16px] border-blue-600/80 transform rotate-45 pointer-events-none shadow-2xl" />
+        <div className="absolute -bottom-[40%] -right-[10%] w-[50%] h-[150%] bg-[#1e3a8a] border-l-[24px] border-slate-200 transform rotate-45 pointer-events-none shadow-2xl opacity-10" />
+        
+        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10">
+          <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-secondary/10 pb-8">
+            <div>
+              <h2 className="text-5xl md:text-6xl font-serif font-black text-secondary uppercase tracking-[0.1em] leading-tight">
+                Core <span className="text-emerald-600 italic font-medium lowercase">Objectives</span>
+              </h2>
+            </div>
+            <div className="max-w-md text-slate-700 font-normal">
+              Guiding principles that steer our research endeavors toward societal and academic impact.
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-col">
             {[
               {
                 title: "Excellence in Research",
-                desc: "Achieve academic, industrial, and societal research excellence through innovation.",
+                desc: "Achieve academic, industrial, and societal research excellence through continuous and rigorous innovation.",
                 color: "#1d71b8",
-                gradient: "from-[#dbeafe] to-[#eff6ff]",
-                accent: "rgba(29,113,184,0.15)"
               },
               {
                 title: "Interdisciplinary Collaboration",
-                desc: "Promote cross-domain research and share knowledge via reputed journals and conferences.",
+                desc: "Promote cross-domain research and seamlessly share knowledge via reputed high-impact journals and global conferences.",
                 color: "#059669",
-                gradient: "from-[#ccfbf1] to-[#f0fdfa]",
-                accent: "rgba(5,150,105,0.15)"
               },
               {
                 title: "Sensitization Programs",
-                desc: "Organize seminars and workshops with guest experts to address societal and industrial needs.",
+                desc: "Organize impactful seminars and workshops with renowned guest experts to directly address societal and industrial needs.",
                 color: "#7c3aed",
-                gradient: "from-[#ede9fe] to-[#f5f3ff]",
-                accent: "rgba(124,58,237,0.15)"
               },
               {
                 title: "Industry Networking",
-                desc: "Conduct research through active collaboration and networking with industry partners.",
+                desc: "Conduct applied research through active collaboration, robust networking, and strategic alliances with industry partners.",
                 color: "#be185d",
-                gradient: "from-[#fce7f3] to-[#fdf2f8]",
-                accent: "rgba(190,24,93,0.15)"
               }
             ].map((obj, index) => (
               <div 
                 key={index}
-                className={`bg-gradient-to-br ${obj.gradient} p-10 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#2D336B]/5 border-b-[6px] group relative overflow-hidden`}
-                style={{ borderBottomColor: obj.color }}
+                className="group flex flex-col md:flex-row md:items-center py-12 border-b border-secondary/10 hover:bg-white/50 transition-colors duration-500 cursor-pointer px-4 -mx-4"
               >
-                <div className="w-16 h-16 rounded-[1.5rem] bg-white shadow-sm flex items-center justify-center mb-10 border border-slate-100 relative z-10">
-                  <span className="font-serif font-black text-3xl" style={{ color: obj.color }}>{index + 1}</span>
+                <div className="w-24 shrink-0 font-serif font-black text-5xl text-secondary/40 group-hover:text-secondary transition-colors duration-500 mb-4 md:mb-0">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
-                <h3 className="text-2xl font-serif font-black text-secondary mb-4 pr-4 leading-snug relative z-10">{obj.title}</h3>
-                <p className="text-slate-700 leading-relaxed text-[1rem] font-bold opacity-80 relative z-10">{obj.desc}</p>
+                <div className="md:w-1/3 pr-8 mb-4 md:mb-0">
+                  <h3 className="text-2xl font-serif font-black text-secondary group-hover:translate-x-2 transition-transform duration-500" style={{ color: obj.color }}>{obj.title}</h3>
+                </div>
+                <div className="md:w-1/2">
+                  <p className="text-slate-700 text-lg font-normal leading-relaxed group-hover:text-slate-900 transition-colors duration-500">{obj.desc}</p>
+                </div>
+                <div className="hidden md:flex ml-auto w-12 h-12 rounded-full border border-secondary/20 items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-500">
+                  <ChevronRight size={20} />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Governance & Policies Section */}
-      <section id="governance" className="py-32 bg-[#FCF8F3] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-5 gap-16 items-center">
-            <div className="lg:col-span-2">
-              <h2 className="text-4xl font-serif font-bold text-secondary mb-6 uppercase tracking-[0.15em]">Governance & Policies</h2>
-              <div className="h-1 w-24 bg-[#2D336B]/20 rounded-full mb-8" />
-              <p className="text-slate-600 text-[1.05rem] mb-12 leading-relaxed font-light">
+      <div className="relative z-[20]" style={{ marginTop: '-2px' }}>
+        <SectionDivider type="wave" topColor="#EEF2FF" bottomColor="#FCF8F3" height={80} />
+      </div>
+
+      {/* Governance & Policies Section (Image 2 Style: Wavy Blue Curves) */}
+      <section id="governance" className="py-32 bg-[#e0f2fe] relative overflow-hidden">
+        {/* Wavy SVGs at bottom */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none leading-none z-0">
+          <svg className="relative block w-full h-[150px] md:h-[250px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.49,190.61,93.85,236.4,74.19,279.79,64.12,321.39,56.44Z" className="fill-blue-500/10"></path>
+          </svg>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none leading-none z-0">
+          <svg className="relative block w-full h-[100px] md:h-[180px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="fill-blue-400/20"></path>
+          </svg>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none leading-none z-0">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" className="fill-white opacity-40"></path>
+          </svg>
+        </div>
+
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
+
+        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10">
+          <div className="flex flex-col lg:flex-row gap-16 lg:items-start">
+            <div className="lg:w-1/3">
+              <h2 className="text-4xl font-serif font-black text-secondary mb-6 uppercase tracking-[0.15em]">Governance<br/><span className="italic text-emerald-600 font-medium lowercase">&</span> Policies</h2>
+              <div className="h-1 w-24 bg-emerald-600/20 rounded-full mb-8" />
+              <p className="text-slate-700 text-[1.1rem] mb-12 leading-relaxed font-normal">
                 Our established framework ensures rigorous ethical standards, active linkage with industry, and robust systems fostering research empowerment across all departments.
               </p>
-              <div className="space-y-5">
-                <a href="https://research-tat.tekkzy.com/research-committee/" target="_blank" rel="noopener noreferrer" className="w-full bg-white border border-slate-200 text-secondary px-8 py-5 rounded-[1.5rem] font-bold text-[11px] tracking-[0.25em] transition-all duration-200 hover:border-slate-300 hover:shadow-md uppercase shadow-sm flex items-center justify-between group block text-center">
-                  Research Committee <ChevronRight className="group-hover:translate-x-1 transition-transform duration-200 text-slate-400" size={18} />
+              <div className="space-y-2">
+                <a href="https://research-tat.tekkzy.com/research-committee/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase text-secondary hover:text-emerald-600 transition-colors group">
+                  Research Committee <ChevronRight size={16} className="group-hover:translate-x-2 transition-transform" />
                 </a>
-                <a href="https://research-tat.tekkzy.com/research-linkage/" target="_blank" rel="noopener noreferrer" className="w-full bg-white text-secondary px-8 py-5 rounded-[1.5rem] font-bold text-[11px] tracking-[0.25em] transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 uppercase flex items-center justify-between group border border-slate-200 shadow-sm hover:border-blue-500/30 block text-center">
-                  Research Linkage <Zap className="text-blue-500 group-hover:text-amber-400 transition-colors duration-200" size={18} />
+                <br/>
+                <a href="https://research-tat.tekkzy.com/research-linkage/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase text-secondary hover:text-blue-500 transition-colors group mt-4">
+                  Research Linkage <Zap size={16} className="group-hover:text-amber-400 group-hover:translate-x-2 transition-all" />
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-3">
-              <div className="bg-white rounded-[2.5rem] p-8 sm:p-12 shadow-sm border border-[#2D336B]/5 relative overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5F5F7] rounded-full blur-[80px]" />
-                <h3 className="text-2xl font-serif font-bold text-[#2D336B] mb-10 pb-6 border-b border-[#F5F5F7] tracking-[0.15em] relative z-10 flex items-center gap-4">
-                  <div className="w-4 h-4 bg-[#F7B538] rounded-sm transform rotate-45 shadow-sm" />
-                  Core Documents
-                </h3>
-                
-                <div className="space-y-4 relative z-10">
-                  {[
-                    { title: "Empowerment Guidelines", desc: "Framework for integrating research natively into academic curricula.", icon: Sparkles, href: "https://research-tat.tekkzy.com/empowerment-guidelines/" },
-                    { title: "Research & Consultancy Policy 2013", desc: "Foundational rules and metrics governing industrial consultancy.", icon: Briefcase, href: "https://tat.ac.in/research/research-and-consultancy-policy/" },
-                    { title: "Research & Development Policy 2024", desc: "Updated mandates, ethical practices, and the R&D code of conduct.", icon: Mail, href: "https://tat.ac.in/research/research-code-of-conduct-and-ethical-practice-manual/" }
-                  ].map((policy, index) => (
-                    <a key={index} href={policy.href} target="_blank" rel="noopener noreferrer" className="flex gap-6 items-start group cursor-pointer p-6 rounded-[1.5rem] bg-[#FCF8F3]/50 hover:bg-white border border-[#F5F5F7] hover:border-[#2D336B]/20 hover:shadow-md transition-all duration-250">
-                      <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shrink-0 border border-[#2D336B]/10 group-hover:bg-[#2D336B] group-hover:border-[#2D336B] transition-all duration-250 shadow-sm">
-                        <policy.icon className="text-[#2D336B] group-hover:text-white transition-colors duration-250" size={22} strokeWidth={2} />
+            <div className="lg:w-2/3 mt-12 lg:mt-0">
+              <h3 className="text-xl font-serif font-black text-slate-400 mb-8 tracking-[0.2em] uppercase border-b border-secondary/10 pb-4">
+                Core Documents
+              </h3>
+              
+              <div className="flex flex-col">
+                {[
+                  { title: "Empowerment Guidelines", desc: "Framework for integrating research natively into academic curricula.", icon: Sparkles, href: "https://research-tat.tekkzy.com/empowerment-guidelines/" },
+                  { title: "Research & Consultancy Policy", desc: "Foundational rules and metrics governing industrial consultancy.", icon: Briefcase, href: "https://tat.ac.in/research/research-and-consultancy-policy/" },
+                  { title: "R&D Policy 2024", desc: "Updated mandates, ethical practices, and the R&D code of conduct.", icon: Mail, href: "https://tat.ac.in/research/research-code-of-conduct-and-ethical-practice-manual/" }
+                ].map((policy, index) => (
+                  <a key={index} href={policy.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between group cursor-pointer py-8 border-b border-secondary/10 hover:bg-white/40 transition-colors duration-300 px-4 -mx-4">
+                    <div className="flex gap-6 items-center">
+                      <div className="text-secondary/30 group-hover:text-emerald-600 transition-colors duration-300">
+                        <policy.icon size={28} strokeWidth={1.5} />
                       </div>
                       <div>
-                        <h4 className="text-[1.1rem] font-bold text-secondary group-hover:text-[#2D336B] transition-colors duration-200 tracking-wide">{policy.title}</h4>
-                        <p className="text-[0.9rem] text-slate-500 font-medium mt-2 leading-relaxed">{policy.desc}</p>
+                        <h4 className="text-[1.3rem] font-serif font-black text-secondary group-hover:text-emerald-600 transition-colors duration-300">{policy.title}</h4>
+                        <p className="text-[1rem] text-slate-600 font-normal mt-1">{policy.desc}</p>
                       </div>
-                    </a>
-                  ))}
-                </div>
+                    </div>
+                    <div className="text-secondary/20 group-hover:text-emerald-600 group-hover:translate-x-2 transition-all duration-300">
+                      <ChevronRight size={24} />
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Research Focus Areas Section */}
-      <section id="focus-areas" className="py-32 bg-white relative overflow-hidden border-t border-slate-100">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 origin-top-right transform z-0" />
-        
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
+      <SectionDivider type="curve" topColor="#FCF8F3" bottomColor="#FFFFFF" height={80} />
+
+      {/* Research Focus Areas Section (Image 1 Style: Soft Overlapping Circles) */}
+      <section id="focus-areas" className="py-32 bg-slate-50 relative overflow-hidden border-t border-slate-200">
+        <div className="absolute top-[10%] -left-[10%] w-[600px] h-[600px] rounded-full border-[40px] border-blue-100/50 pointer-events-none" />
+        <div className="absolute bottom-[5%] right-[5%] w-[800px] h-[800px] rounded-full bg-gradient-to-tl from-indigo-100/40 to-transparent pointer-events-none" />
+        <div className="absolute -bottom-[20%] -left-[10%] w-[1000px] h-[1000px] rounded-full border-[80px] border-white/60 pointer-events-none mix-blend-overlay" />
+
+        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10">
+          <div className="text-center mb-24">
             <h2 className="text-sm font-black text-slate-400 mb-4 uppercase tracking-[0.4em]">Explore Our</h2>
-            <h3 className="text-4xl md:text-5xl font-serif font-black text-secondary uppercase tracking-[0.1em] drop-shadow-sm mb-6">
+            <h3 className="text-5xl md:text-6xl font-serif font-black text-secondary uppercase tracking-[0.1em] drop-shadow-sm mb-6">
               Research <span className="text-blue-600 italic font-medium lowercase">Focus Areas</span>
             </h3>
             <div className="h-1.5 w-24 bg-blue-600/20 mx-auto rounded-full" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-l border-slate-100">
             {[
               {
                 title: "Research Recognition",
                 desc: "Honoring outstanding research contributions and scholarly achievements within our institution.",
                 icon: Award,
                 url: "https://research-tat.tekkzy.com/research-recognition/",
-                color: "text-amber-500",
-                bg: "bg-amber-50",
-                border: "group-hover:border-amber-500/30"
+                color: "text-amber-500 group-hover:bg-amber-50",
               },
               {
-                title: "Extramural Funding (TEFR)",
+                title: "Extramural Funding",
                 desc: "Securing external grants for impactful, solution-driven research projects and global challenges.",
                 icon: Globe,
                 url: "https://research-tat.tekkzy.com/extramural-funding/",
-                color: "text-blue-500",
-                bg: "bg-blue-50",
-                border: "group-hover:border-blue-500/30"
+                color: "text-blue-500 group-hover:bg-blue-50",
               },
               {
-                title: "Intramural Funding (TIFR)",
+                title: "Intramural Funding",
                 desc: "Internal funding schemes supporting faculty and student innovations to foster research excellence.",
                 icon: Lightbulb,
                 url: "https://research-tat.tekkzy.com/intramural-funding/",
-                color: "text-emerald-500",
-                bg: "bg-emerald-50",
-                border: "group-hover:border-emerald-500/30"
+                color: "text-emerald-500 group-hover:bg-emerald-50",
               },
               {
                 title: "Domain Research Hubs",
                 desc: "Specialized centers fostering interdisciplinary, advanced technical and social research.",
                 icon: Building2,
                 url: "https://research-tat.tekkzy.com/domain-research-hub/",
-                color: "text-indigo-500",
-                bg: "bg-indigo-50",
-                border: "group-hover:border-indigo-500/30"
+                color: "text-indigo-500 group-hover:bg-indigo-50",
               },
               {
                 title: "Patents",
                 desc: "Securing intellectual property rights for groundbreaking and transformative innovations.",
                 icon: Zap,
                 url: "https://tat.ac.in/research/patents/",
-                color: "text-rose-500",
-                bg: "bg-rose-50",
-                border: "group-hover:border-rose-500/30"
+                color: "text-rose-500 group-hover:bg-rose-50",
               },
               {
                 title: "Consultancy",
                 desc: "Bridging the gap between academia and industry through expert solutions and active R&D.",
                 icon: Briefcase,
                 url: "https://research-tat.tekkzy.com/consultancy/",
-                color: "text-cyan-500",
-                bg: "bg-cyan-50",
-                border: "group-hover:border-cyan-500/30"
+                color: "text-cyan-500 group-hover:bg-cyan-50",
               }
             ].map((item, index) => (
               <a 
@@ -424,19 +468,19 @@ const App = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 ${item.border}`}
+                className={`block bg-white p-12 border-b border-r border-slate-100 transition-colors duration-500 group ${item.color.split(' ')[1]}`}
               >
-                <div className={`w-16 h-16 rounded-[1.25rem] ${item.bg} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className={item.color} size={28} strokeWidth={1.5} />
+                <div className="mb-8">
+                  <item.icon className={item.color.split(' ')[0]} size={36} strokeWidth={1} />
                 </div>
-                <h4 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-blue-600 transition-colors duration-200">
+                <h4 className="text-2xl font-serif font-black text-secondary mb-4 group-hover:text-slate-900 transition-colors duration-200">
                   {item.title}
                 </h4>
-                <p className="text-slate-500 leading-relaxed font-medium text-[0.95rem]">
+                <p className="text-slate-600 leading-relaxed font-normal text-[1.05rem]">
                   {item.desc}
                 </p>
-                <div className="mt-8 flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors duration-200">
-                  Explore <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                <div className="mt-8 flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-300 group-hover:text-slate-900 transition-colors duration-200">
+                  Explore <ChevronRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </div>
               </a>
             ))}
@@ -444,67 +488,63 @@ const App = () => {
         </div>
       </section>
 
-      {/* National Initiatives Section */}
-      <section id="initiatives" className="py-32 bg-[#2D336B] relative overflow-hidden shadow-[inset_0_20px_50px_rgba(0,0,0,0.1)]">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none opacity-40" />
+      <div className="relative z-[20]" style={{ marginTop: '-2px' }}>
+        <SectionDivider type="wave" topColor="#FFFFFF" bottomColor="#2D336B" height={80} />
+      </div>
+
+      {/* National Initiatives Section (Image 3 Style: Dark Tech Geometry) */}
+      <section id="initiatives" className="bg-[#1e293b] relative overflow-hidden py-32">
+        {/* Dark Geometric Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(#334155_2px,transparent_2px)] [background-size:32px_32px] opacity-30 pointer-events-none" />
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(-45deg, #cbd5e1 0, #cbd5e1 1px, transparent 1px, transparent 12px)' }} />
         
-        {/* Floating Thematic Watermarks */}
-        <div className="absolute top-20 left-10 text-white/5 pointer-events-none rotate-12">
-          <Cpu size={200} strokeWidth={0.5} />
-        </div>
-        <div className="absolute bottom-20 right-10 text-white/5 pointer-events-none -rotate-12">
-          <Database size={240} strokeWidth={0.5} />
-        </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.02] pointer-events-none">
-          <Globe size={500} strokeWidth={0.5} />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
+        <div className="absolute -top-[30%] -right-[10%] w-[60%] h-[150%] bg-[#0f172a] border-l-[12px] border-blue-500/30 transform -rotate-45 pointer-events-none shadow-2xl" />
+        <div className="absolute -bottom-[50%] -left-[20%] w-[70%] h-[150%] bg-[#020617] border-r-[20px] border-amber-500/20 transform -rotate-45 pointer-events-none shadow-2xl opacity-60" />
+
+        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10 mb-20">
+          <div className="text-center">
             <h2 className="text-sm font-black text-blue-100/60 mb-4 uppercase tracking-[0.4em] flex items-center justify-center gap-4">
               <span className="w-8 h-px bg-white/20" /> Aligning <span className="text-white italic">With</span> <span className="w-8 h-px bg-white/20" />
             </h2>
-            <h3 className="text-5xl md:text-6xl font-serif font-black text-white uppercase tracking-[0.1em] drop-shadow-sm">
+            <h3 className="text-5xl md:text-7xl font-serif font-black text-white uppercase tracking-[0.1em] drop-shadow-sm">
               National <span className="text-amber-400 italic font-medium lowercase">Initiatives</span>
             </h3>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { 
-                img: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800", 
-                title: "SMART CITIES", 
-                desc: "Developing next-generation urban infrastructure models for a sustainable tomorrow.", 
-                color: "#d32128" 
-              },
-              { 
-                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800", 
-                title: "DIGITAL INDIA", 
-                desc: "Pioneering state-of-the-all cyber-physical frameworks for a connected nation.", 
-                color: "#4F8AFF" 
-              },
-              { 
-                img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800", 
-                title: "STARTUP INDIA", 
-                desc: "Fostering entrepreneurial excellence through robust mentorship and venture funding.", 
-                color: "#fbbd18" 
-              }
-            ].map((item, index) => (
-              <div 
-                key={index} 
-                className="bg-[#1A1E40] rounded-[2.5rem] text-center border border-white/10 shadow-lg transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
-              >
-                <div className="h-56 relative overflow-hidden">
-                  <img src={item.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={item.title} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1E40] to-transparent opacity-60" />
-                </div>
-                <div className="p-10 relative z-10">
-                  <h3 className="font-serif font-black text-2xl mb-4 tracking-widest text-white" style={{ color: item.color }}>{item.title}</h3>
-                  <p className="text-blue-50 text-[1rem] font-bold opacity-80">{item.desc}</p>
-                </div>
+        <div className="flex flex-col">
+          {[
+            { 
+              img: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200", 
+              title: "SMART CITIES", 
+              desc: "Developing next-generation urban infrastructure models for a sustainable tomorrow.", 
+              color: "#d32128" 
+            },
+            { 
+              img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200", 
+              title: "DIGITAL INDIA", 
+              desc: "Pioneering state-of-the-art cyber-physical frameworks for a connected nation.", 
+              color: "#4F8AFF" 
+            },
+            { 
+              img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=1200", 
+              title: "STARTUP INDIA", 
+              desc: "Fostering entrepreneurial excellence through robust mentorship and venture funding.", 
+              color: "#fbbd18" 
+            }
+          ].map((item, index) => (
+            <div key={index} className={`flex flex-col md:flex-row ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} group overflow-hidden`}>
+              <div className="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+                <img src={item.img} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt={item.title} />
+                <div className="absolute inset-0 bg-[#2D336B]/40 group-hover:bg-[#2D336B]/10 transition-colors duration-500" />
               </div>
-            ))}
-          </div>
+              <div className="md:w-1/2 p-12 md:p-24 flex flex-col justify-center bg-[#1A1E40] border-t border-white/5">
+                <div className="w-12 h-1 mb-8" style={{ backgroundColor: item.color }} />
+                <h3 className="font-serif font-black text-4xl mb-6 tracking-widest text-white">{item.title}</h3>
+                <p className="text-blue-50/90 text-[1.2rem] font-normal leading-relaxed max-w-md">{item.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

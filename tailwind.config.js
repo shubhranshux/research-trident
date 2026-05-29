@@ -19,8 +19,8 @@ export default {
         'text-light': '#4B5563',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Outfit', 'sans-serif'],
+        sans: ['Inter', 'DM Sans', 'sans-serif'],
+        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
       },
     },
   },
