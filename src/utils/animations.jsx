@@ -115,54 +115,48 @@ export function Fade({ children, delay = 0, className = "" }) {
  * Uses SplitType for character splitting + GSAP for stagger animation
  */
 export function TextReveal({ children, className = "", delay = 0, stagger = 0.03, blur = true }) {
-  const containerRef = useRef(null);
-  const hasAnimated = useRef(false);
+  const [ref, isVisible] = useVisible(0.1);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el || hasAnimated.current) return;
+    if (isVisible) setHasAnimated(true);
+  }, [isVisible]);
 
-    // Dynamic import to avoid SSR issues
-    import("split-type").then(({ default: SplitType }) => {
-      const split = new SplitType(el, { types: "chars,words" });
-      
-      gsap.set(split.chars, {
-        opacity: 0,
-        y: 20,
-        rotateX: blur ? 40 : 0,
-        filter: blur ? "blur(8px)" : "none",
-        transformOrigin: "bottom center",
-      });
+  const active = isVisible || hasAnimated;
+  
+  if (typeof children !== 'string') {
+    return (
+      <div ref={ref} className={className} style={{
+        opacity: active ? 1 : 0,
+        transform: active ? "translateY(0)" : "translateY(20px)",
+        transition: `all 800ms ease ${delay}ms`
+      }}>
+        {children}
+      </div>
+    );
+  }
 
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 85%",
-        once: true,
-        onEnter: () => {
-          hasAnimated.current = true;
-          gsap.to(split.chars, {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            filter: "blur(0px)",
-            duration: 0.8,
-            stagger: stagger,
-            delay: delay / 1000,
-            ease: EASE.dramatic,
-            onComplete: () => {
-              // Clean up — remove inline styles for perf
-              split.revert();
-            },
-          });
-        },
-      });
-    });
-  }, [delay, stagger, blur]);
+  const chars = children.split('');
+  const staggerMs = stagger * 1000;
 
   return (
-    <div ref={containerRef} className={className} style={{ perspective: "600px" }}>
-      {children}
-    </div>
+    <span ref={ref} className={className} style={{ display: 'inline-block' }}>
+      {chars.map((char, i) => (
+        <span
+          key={i}
+          style={{
+            display: 'inline-block',
+            opacity: active ? 1 : 0,
+            transform: active ? "translateY(0)" : "translateY(20px)",
+            filter: active ? "blur(0px)" : (blur ? "blur(8px)" : "none"),
+            transition: `all 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * staggerMs}ms`,
+            whiteSpace: char === ' ' ? 'pre' : 'normal'
+          }}
+        >
+          {char}
+        </span>
+      ))}
+    </span>
   );
 }
 
@@ -203,7 +197,7 @@ export function MaskReveal({ children, className = "", delay = 0, direction = "u
 
   return (
     <div ref={outerRef} className={`overflow-hidden ${className}`}>
-      <div ref={innerRef}>{children}</div>
+      <div ref={innerRef} className="h-full w-full">{children}</div>
     </div>
   );
 }
